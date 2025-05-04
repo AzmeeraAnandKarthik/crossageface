@@ -139,5 +139,5 @@ def start_camera():
     known_encoding = encoding[0]
     return Response(gen_frames(known_encoding, name, email), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+#    app.run(debug=True)
