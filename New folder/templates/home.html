@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Extractor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h2>🎥 Upload Video to Extract Face</h2>
+    <form method="POST" action="/extract" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Enter Name" required><br>
+        <input type="email" name="email" placeholder="Enter Email" required><br>
+        <input type="number" name="age" placeholder="Enter Age (0-49)" min="0" max="49" required><br>
+        <input type="file" name="video" accept="video/*" required><br><br>
+        <button type="submit">Extract Image</button>
+    </form>
+
+    {% if image_path %}
+        <h3>🖼️ Extracted Frame:</h3>
+        <img src="{{ image_path }}" width="300"><br><br>
+
+        <form method="POST" action="/start_camera">
+            <input type="hidden" name="name" value="{{ name }}">
+            <input type="hidden" name="email" value="{{ email }}">
+            <button type="submit">Start Camera</button>
+        </form>
+    {% endif %}
+
+</body>
+</html>
